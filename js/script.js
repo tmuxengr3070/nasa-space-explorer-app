@@ -90,6 +90,14 @@ function renderGallery(items) {
 
 // Add a click event listener to the button
 getImageBtn.addEventListener('click', () => {
+  // Show loading message before fetching data
+  gallery.innerHTML = `
+    <div class="placeholder">
+      <div class="placeholder-icon">🚀</div>
+      <p>Loading Space Images...</p>
+    </div>
+  `;
+
   // Fetch random images from the NASA APOD API
   fetch(API_URL)
     .then(response => response.json())
